@@ -1,70 +1,117 @@
-
-/* Global Styles */
-
+/* global styles */
 :root {
-    --header-blue: #005A8F;
-    --white: #ffffff;
+    /* Brand Palette */
+    --color-primary: #005A8F;   /* Deep Blue - AAA on white */
+    --color-secondary: #7FB8D6; /* Light Blue - accents only, not text */
+    --color-tertiary: #FFA89E;  /* Soft Coral - accents only, not text */
+    --color-cta: #E25334;       /* Darkened Coral - passes AAA on white */
+  
+    /* Text and Backgrounds */
+    --color-grey-light: #F5F5F5;   /* Backgrounds only */
+    --color-grey-divider: #d5d6d6; /* Subtle dividers */
+    --color-grey-medium: #6C757D;  /* Secondary text (AA only, avoid for primary text in AAA) */
+    --color-grey-dark: #212529;    /* Body text, Headings - AAA safe */
+  
+    /* Utility colours */
+    --color-white: #ffffff;
+    --color-black: #000000;
+  
+    /* Typography */
+    --font-header: "Belanosima", sans-serif;
+    --font-body: "Albert Sans", sans-serif;
+  
+    /* Font Sizes (rem = root-based) */
+    --fs-xs: 0.875rem;   /* 14px - captions only */
+    --fs-sm: 1rem;       /* 16px - short labels, not main body */
+    --fs-base: 1.125rem; /* 18px - body text, AAA safe */
+    --fs-md: 1.0625rem;    /* 17px - medium body text / small paragraphs */
+    --fs-lg: 1.375rem;   /* 22px - subheadings */
+    --fs-xl: 1.5rem;     /* 24px - large headings */
+    --fs-xxl: 2rem;      /* 32px - hero/title */
+    --fs-xxxl: 2.5rem;      /* 32px - hero/title */
+  
+    /* Spacing (em relative to element font size) */
+    /* padding and margins */
+    --space-xs: 0.5em;
+    --space-sm: 1em;
+    --space-md: 1.5em;
+    --space-lg: 2em;
+    --space-xl: 3em;
+  
+    /* Borders & Radius */
+    --radius-sm: 0.25em;
+    --radius-md: 0.5em;
+    --radius-lg: 1em;
+
+     /* Gap scale (for grid/flex spacing) */
+--gap-xxs: 0.25em;  /* ultra-tight spacing, very small icons or text chips */
+  --gap-xs: 0.5em;   /* very tight, icons or small chips */
+  --gap-sm: 1em;     /* compact spacing, nav links */
+  --gap-md: 1.5em;   /* default gap for grid/flex layouts */
+  --gap-lg: 2em;     /* comfortable gap, card layouts */
+  --gap-xl: 3em;     /* large separation, hero sections */
   }
 
 
 body{
-    font-size: 16px;
-    line-height: 1.6; 
-background-color: white;
-    outline: 1px solid red;
+    font-size: var(--fs-base);
+    line-height: 1.5; 
+    font-family: var(--font-body);
 }
 
 /* colours */
 
 
+/* heading styles */
 
-/* Apply Belanosima only to header */
-header,h1,h2,h3,h4{
-    font-family: "Belanosima", sans-serif;
-    color: var(--header-blue)
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-header);
+    color: var(--color-primary);
+    line-height: 1.25; 
+  }
 
-}
+  h1 { font-size: var(--fs-xxl); font-weight: 600; }
+  h2 { font-size: var(--fs-xl); font-weight: 500; }
+  h3 { font-size: var(--fs-lg); font-weight: 500; }
+  h4, h5, h6 { font-size: var(--fs-base); font-weight: 400; }
 
-h1,h2 {
-font-weight: 600;
-}
-
-h3,h4,h5 {
-    font-weight: 500;
-    }
-
-p, ul,li,a{
-    font-family: "Albert Sans", sans-serif;
-}
-
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: var(--fs-sm);
+  }
 /* header */
 
 .header{
 display: flex;
 align-items: center;
 justify-content: space-between;
-padding:1.125em 1.25em;
+padding:var(--space-sm) var(--space-md);
 
 }
 
 .header__brand{
     display: flex;
     align-items: center;
-    gap: 0.2em;
+    gap: var(--gap-xs);
 
 }
 
-.header__logo{
-    background-image: url("../images/CC.svg");
-    width: 1.43rem;
+.logo{
+    background-image: url("../images/logo-code-comprende-mobile.png");
+    width: 44px;
     max-width: 100%;
-    height: 1.43rem;
+    height: 44px;
     background-size: contain;  
     background-repeat: no-repeat;
     background-position: center;
 }
 .header__title{
-    font-size: 0.85rem;
+    font-size: var(--fs-lg);
+    font-family: var(--font-header);
+    color: var(--color-primary);
 }
 
 .header__nav{
@@ -75,15 +122,15 @@ padding:1.125em 1.25em;
 .header__nav-list{
     display: flex;
     list-style: none;
-gap: 2em;
+gap: var(--gap-md);
 }
 
 .header__nav-link{
  text-decoration: none;
- text-transform: uppercase;
- font-size: 0.75rem;
+ /* text-transform: uppercase; */
+ font-size: var(--fs-sm);
  font-weight: 600;
- color: var(--header-blue);
+ color: var(--color-primary);
 }
 
 /* hero section */
@@ -93,13 +140,14 @@ gap: 2em;
     flex-direction: column;
     background: 
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../images/madrid.jpg');
+    url('../images/bear-sol-madrid.svg');
     width: 100%;
   min-height: 25vh;
     background-position: center;
     background-size: cover;
    justify-content: flex-end;
-padding: 5.4em 1.125em 1.625em 1.125em;
+padding: var(--space-xl) var(--space-sm) var(--space-md) var(--space-sm);
+
  
 }
 
@@ -107,18 +155,83 @@ padding: 5.4em 1.125em 1.625em 1.125em;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    color: white;
-    gap: 0.1em;
+    color: var(--color-white);
+    gap: var(--gap-xxs);
     max-width: 90%;
 }
 
 .hero__title{
-    font-size: 2rem;
+    font-size: var(--fs-xxl);
     color: white;
 }
 
 .hero__date{
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
+    color: var(--color-white);
+}
+
+/* cards */
+
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr;
+gap: 2em;
+margin: 0 auto;
+padding: var(--space-lg) var(--space-sm) var(--space-lg) var(--space-sm);
+max-width: 374px; 
+  /* border: 2px solid var(--color-primary); */
+}
+
+.card{
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+gap: var(--gap-sm);
+border-bottom: 1px solid rgb(218, 218, 218);
+padding: var(--space-xs) var(--space-xs) var(--space-md) var(--space-xs);
+}
+
+.card__image{
+width: 100%;
+aspect-ratio: 1.5 / 1;
+border-radius: 0.25em;
+background-size: cover;
+background-position: center;
+border-radius: 0.5rem;
+}
+.card__info{
+    display: flex;
+    flex-direction: column;
+padding: 0;
+}
+
+
+.card__date{
+    color: var(--color-grey-medium);
+    font-size: var(--fs-xs);
+}
+
+.card__image--blog2{
+    background-image: url("../images/digital-devices.png");
+   
+}
+
+/* .card__image--blog3{
+    background-image: url("../images/coding-frustration.png");
+   
+} */
+
+.card__image--blog4{
+    background-image: url("../images/scrimba-post.png");
+   
+}
+
+
+
+.card__title{
+    width: 100%;
+    font-size: var(--fs-xxl);
 }
 
 
@@ -129,15 +242,16 @@ padding: 5.4em 1.125em 1.625em 1.125em;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--header-blue);
+    background-color: var(--color-primary);
     color: white;
-    font-size: 0.75rem;
-    padding: 2.3em;
+    font-size: var(--fs-sm);
+    padding: var(--space-lg);
+    gap: var(--gap-xs);
 }
 
 .footer__heading{
 font-weight: 600;
-margin-bottom: 0.25em;
+
 }
 
 .footer__copyright{
@@ -147,5 +261,5 @@ margin-bottom: 0.25em;
 /* articles */
 .articles__grid{
 grid-template-columns: 1fr;
-border: 1px solid green;
+
 }
