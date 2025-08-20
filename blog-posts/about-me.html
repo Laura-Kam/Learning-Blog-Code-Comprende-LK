@@ -20,13 +20,13 @@
       rel="stylesheet"
     />
     <!-- Reset CSS first -->
-    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
 
     <!-- Main default mobile-first styles -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
 
     <!-- Responsive Media Queries -->
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
   </head>
   <body>
     <!-- header -->
@@ -38,27 +38,41 @@
       <nav class="header__nav">
         <ul class="header__nav-list">
           <li><a href="index.html" class="header__nav-link">Home</a></li>
-          <li>
-            <a href="./blog-posts/about-me.html" class="header__nav-link"
-              >About</a
-            >
-          </li>
+          <li><a href="about.html" class="header__nav-link">About</a></li>
         </ul>
       </nav>
     </header>
     <!-- hero -->
-    <section class="hero">
-      <div class="hero__text-container">
-        <div class="hero__info">
-          <p class="hero__date">AUGUST 18,2025</p>
-          <h1 class="hero__title">THE BIG MOVE</h1>
+    <section class="about__hero">
+      <img
+        class="about__hero--img"
+        src="../images/blue-bg-laura-k-profile.png"
+        alt="Smiling headshot of Laura K with a blue blob background."
+      />
+    </section>
+
+    <section class="about">
+      <div class="about__grid">
+        <div class="about__intro-section">
+          <h1 class="about__heading">About Me</h1>
+          <p class="about__paragraph">
+            Hi, I’m Laura — ex-ESL teacher turned freelance front-end developer
+            and founder of CodeComprende.
+          </p>
         </div>
-        <p class="hero__blog-extract">
-          Moving back to Madrid, and beginning my networking journey.
+        <p class="about__paragraph">
+          When I first started learning to code, I constantly heard: “Just
+          Google it.” But let’s be real — blog posts and videos often skip the
+          basics. As adult learners, we’re left piecing things together and
+          hoping it clicks.
+        </p>
+        <p class="about__paragraph">
+          That didn’t sit right with me. So, I set out to change it. With my
+          experience in the classroom, I now design scaffolded learning journeys
+          that meet you where you are — without the overwhelm.
         </p>
       </div>
     </section>
-    <section class="grid"></section>
 
     <!-- footer -->
     <footer class="footer">
